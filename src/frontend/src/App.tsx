@@ -23,7 +23,7 @@ export default function App() {
       <div className="relative min-h-screen overflow-x-hidden">
         <GlobalBackground />
         <Suspense fallback={<LoadingFallback />}>
-          <main className="relative z-10">
+          <main className="relative z-10 pointer-events-auto">
             <HeroSection />
             <AboutSection />
             <ServicesSection />

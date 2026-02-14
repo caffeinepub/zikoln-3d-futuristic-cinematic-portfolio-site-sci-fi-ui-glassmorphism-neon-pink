@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "3D futuristic high-tech cinematic portfolio website for ZIKOLN (Graphic & Motion Designer) built in Framer or Webflow with sci‑fi UI styling (holograms, neon, glassmorphism), immersive 3D/parallax interactions, CMS-driven portfolio, and performance/mobile optimization; include stronger pink/magenta accents and updated About/Hero copy.",
   "architectural_notes": [
     "Use Spline embeds for floating 3D objects and/or WebGL where needed; rely on Framer Motion or Webflow Interactions for parallax, hover depth, and transitions.",
@@ -8,8 +8,10 @@
     "Use CMS collections (Webflow CMS or Framer CMS) to power portfolio/projects and categories.",
     "Incorporate stronger pink/magenta accents into the neon palette (buttons, highlights, glows) while maintaining legibility on dark backgrounds."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Published site/editor build is not responding to any click (UI appears unclickable/unresponsive)."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-implement-the-global-visual-identity-to-match-a-premium-high-tech-cinematic-sci-fi-interface-deep-black-dark-blue-gradient-background-subtle-animated-starfield-or-tech-grid-neon-cyan-electric-purple-soft-magenta-accents-soft-3d-glow-rim-lighting-floating-light-particles-glassmorphism-panels-neon-edge-highlights-and-parallax-depth-layers-enforce-this-consistently-across-all-sections",
@@ -128,6 +130,30 @@
       "title": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
       "reqIds": [
         "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-issue-where-the-published-portfolio-site-ui-does-not-respond-to-clicks-buttons-links-portfolio-items-and-form-inputs-identify-any-global-overlay-elements-stacking-context-z-index-issues-or-css-pointer-events-rules-that-are-preventing-pointer-events-from-reaching-interactive-elements",
+      "title": "Investigate and fix the issue where the published portfolio site UI does not respond to clicks (buttons, links, portfolio items, and form inputs). Identify any global overlay elements, stacking-context/z-index issues, or CSS/pointer-events rules that are preventing pointer events from reaching interactive elements.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-purely-decorative-full-screen-absolute-fixed-visual-layers-do-not-capture-pointer-events-e-g-background-canvases-fixed-grid-overlays-hero-background-image-layers-while-keeping-interactive-content-layers-clickable-and-visually-unchanged",
+      "title": "Ensure all purely decorative, full-screen/absolute/fixed visual layers do not capture pointer events (e.g., background canvases, fixed grid overlays, hero background image layers), while keeping interactive content layers clickable and visually unchanged.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-minimal-in-app-debug-aid-for-this-specific-issue-when-running-in-development-mode-provide-an-easy-way-to-verify-click-handling-is-working-e-g-a-small-temporary-click-test-element-or-console-logging-gated-to-development-only-and-remove-disable-it-for-production-builds",
+      "title": "Add a minimal in-app debug aid for this specific issue: when running in development mode, provide an easy way to verify click handling is working (e.g., a small temporary click test element or console logging gated to development only) and remove/disable it for production builds.",
+      "reqIds": [
+        "REQ-19"
       ],
       "version": 1
     }

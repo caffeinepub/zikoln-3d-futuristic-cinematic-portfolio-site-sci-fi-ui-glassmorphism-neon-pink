@@ -1,80 +1,87 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update ZIKOLN copy and enhance pink accents",
+  "title": "Restore click interactivity by removing pointer-event blocking overlays",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Rewrite hero and about copy to the provided ZIKOLN bio in clear English (no duplication/awkward phrasing).",
+      "id": "REQ-17",
+      "summary": "Identify and fix any global overlay/stacking-context/CSS pointer-event rules preventing clicks from reaching interactive elements site-wide.",
       "acceptanceCriteria": [
-        "Hero section includes ZIKOLN name and “Graphic Designer” title in a prominent, readable way.",
-        "About section bio text includes: (1) 1+ years of experience, (2) emphasis on creativity and attention to detail, (3) specialties: Logos & Branding, Typography, Social Media Design, Motion Graphics, and (4) mastery of Adobe Creative Suite.",
-        "No duplicated sentence remains (e.g., the repeated “I have master Design tool such as Adobe Creative ...”).",
-        "All updated copy is written in clear English."
+        "On the published site, clicking the HERO CTA buttons triggers their intended actions (scroll to #portfolio and scroll to #contact).",
+        "In PORTFOLIO, clicking a project card opens the project modal; clicking the backdrop or the close button closes it.",
+        "In CONTACT, input fields can be focused and typed into; the WhatsApp Direct button and social links are clickable.",
+        "No full-screen decorative layer (background gradients, starfield canvas, hero background images/grids, scanline effects, etc.) blocks pointer events over the main content."
       ],
       "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Audit the top-level layout stacking contexts and ensure the main content layer reliably sits above decorative layers (e.g., enforce a clear z-index strategy and avoid any accidental full-screen overlay covering <main>). Also wire in the dev-only click debug aid (REQ-19) behind a development-only gate."
+        },
+        {
+          "path": "frontend/src/components/visual/GlobalBackground.tsx",
+          "operation": "modify",
+          "description": "Ensure all full-screen background layers (gradient div, starfield canvas, and grid image layer) cannot capture pointer events; verify their z-index keeps them behind content while remaining visually unchanged."
+        },
         {
           "path": "frontend/src/components/sections/HeroSection.tsx",
           "operation": "modify",
-          "description": "Update hero headline/subheadline copy to prominently feature “ZIKOLN” and the “Graphic Designer” title; ensure all hero text reads naturally in English and removes awkward/duplicated phrasing."
+          "description": "Ensure the hero's absolute/fixed decorative background layers (the image/grid parallax container) do not intercept clicks intended for CTA buttons; confirm content remains above decorative layers and buttons continue to scroll to #portfolio and #contact."
         },
         {
-          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "path": "frontend/src/components/sections/PortfolioSection.tsx",
           "operation": "modify",
-          "description": "Rewrite the About bio paragraph(s) to include 1+ years experience, creativity + attention to detail, specialties (Logos & Branding, Typography, Social Media Design, Motion Graphics), and mastery of Adobe Creative Suite; ensure final copy is clear English without repeated sentences."
+          "description": "Verify project card click handling is not blocked by any overlaying decorative layers; ensure clicking a card still sets the selected project and opens the modal reliably."
+        },
+        {
+          "path": "frontend/src/components/sections/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Verify form inputs and links are not blocked by overlays; ensure inputs can be focused/typed into and external links/buttons are clickable after overlay pointer-event fixes."
         }
       ]
     },
     {
-      "id": "REQ-15",
-      "summary": "Replace placeholder identity strings with the name “ZIKOLN” in configuration and footer.",
+      "id": "REQ-18",
+      "summary": "Make all purely decorative full-screen/absolute/fixed visual layers ignore pointer events while keeping visuals unchanged and interactive layers on top.",
       "acceptanceCriteria": [
-        "`frontend/src/content/siteConfig.ts` uses the name “ZIKOLN” instead of the current placeholder.",
-        "Footer displays “© [current year] ZIKOLN — Built in the Future” (year remains dynamic).",
-        "No other user-facing sections show the placeholder name (e.g., “Alex Rivera”)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/content/siteConfig.ts",
-          "operation": "modify",
-          "description": "Replace the placeholder site name with “ZIKOLN” so any configuration-driven name usage reflects the correct identity."
-        },
-        {
-          "path": "frontend/src/components/sections/FooterSection.tsx",
-          "operation": "modify",
-          "description": "Update the footer copyright line to render “© {currentYear} ZIKOLN — Built in the Future” while keeping the year dynamic."
-        }
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "summary": "Increase pink/magenta accents across global theme and key UI highlights while preserving the existing neon futuristic aesthetic and reduced-motion behavior.",
-      "acceptanceCriteria": [
-        "Pink/magenta accents are more noticeable across the UI (e.g., gradients, glow/shadow accents, borders, highlights) without reducing readability/contrast.",
-        "At least one primary gradient treatment (e.g., hero headline gradient and/or major section headings) includes a stronger pink presence.",
-        "At least one core component accent (e.g., GlassPanel neon accents, buttons, or similar highlights) uses the magenta/pink option in a visible way.",
-        "Changes respect reduced-motion behavior (no new mandatory animations that ignore prefers-reduced-motion)."
+        "Decorative layers render normally but have no impact on clicking/scrolling/hovering interactive UI.",
+        "Interactive components remain above decorative layers in stacking order and reliably receive click events across sections."
       ],
       "file_operations": [
         {
           "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Adjust global theme variables and shared styling accents to increase pink/magenta presence (while maintaining contrast), including updating shared accent colors and any global highlight treatments (e.g., scrollbar gradient) without introducing new motion that bypasses prefers-reduced-motion."
+          "description": "Add a small set of global utility rules/classes to standardize decorative-layer behavior (e.g., a reusable class that applies pointer-events: none for purely decorative overlays) and, if needed, a safe z-index convention to keep interactive content above background layers."
         },
         {
-          "path": "frontend/tailwind.config.js",
+          "path": "frontend/src/components/visual/GlobalBackground.tsx",
           "operation": "modify",
-          "description": "Refine/extend Tailwind theme tokens (e.g., neon-pink shadow or related accent utilities) so pink/magenta glow accents are easier to apply consistently across sections while keeping the current neon aesthetic."
+          "description": "Apply the decorative-layer no-pointer-events convention to every full-screen background layer in this component (not just the canvas) to guarantee they never capture clicks/hover/scroll."
         },
         {
           "path": "frontend/src/components/sections/HeroSection.tsx",
           "operation": "modify",
-          "description": "Strengthen pink/magenta in the hero’s primary gradient treatment and one key UI highlight (e.g., a button gradient/glow or scroll indicator border) while preserving readability and existing reduced-motion handling."
+          "description": "Apply the decorative-layer no-pointer-events convention to the hero background visual container/layers (absolute inset elements and spinning images) so only the intended interactive content receives pointer events."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Add a minimal development-only click/debug aid to quickly confirm click handling works, with no visible/debug logging in production builds.",
+      "acceptanceCriteria": [
+        "In development, it is straightforward to verify click handling without inspecting multiple components manually.",
+        "Production build contains no visible debug UI and does not log noisy click-debug output."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/debug/ClickDebug.tsx",
+          "operation": "create",
+          "description": "Create a minimal dev-only click verification helper (e.g., a small fixed test button/overlay that reports click success and/or logs a single concise message). Ensure it is designed to not obstruct the UI (small footprint, positioned away from primary controls) and is appropriate for temporary diagnosis."
         },
         {
-          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Use the GlassPanel component’s magenta/pink neon accent option (neonColor=\"magenta\") in a prominent way and adjust nearby highlights (e.g., heading gradient or avatar glow) to increase visible pink accents while staying consistent with the overall neon theme."
+          "description": "Render the ClickDebug helper only in development mode (e.g., gated by the build tool’s dev flag) so production builds contain no visible debug UI and no click-debug logging."
         }
       ]
     }

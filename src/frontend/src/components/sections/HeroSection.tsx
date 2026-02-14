@@ -30,8 +30,8 @@ export default function HeroSection() {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* 3D Background Elements - Decorative only, no pointer events */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
         <div
           className="absolute w-[600px] h-[600px] opacity-30"
           style={{
@@ -62,8 +62,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      {/* Content - Interactive layer */}
+      <div className="relative text-center px-4 max-w-5xl mx-auto pointer-events-auto" style={{ zIndex: 1 }}>
         <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-[float_3s_ease-in-out_infinite]">
           ZIKOLN
         </h1>
@@ -93,7 +93,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none" style={{ zIndex: 1 }}>
         <div className="w-6 h-10 border-2 border-pink-400/50 rounded-full flex items-start justify-center p-2">
           <div className="w-1 h-3 bg-pink-400 rounded-full animate-[scroll_1.5s_ease-in-out_infinite]" />
         </div>

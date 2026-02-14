@@ -2,53 +2,14 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-site-copy-to-reflect-the-user-provided-zikoln-bio-ensuring-all-user-facing-text-is-in-english-and-removing-duplicated-awkward-phrasing-from-the-provided-text",
-      "featureTitle": "Update the site copy to reflect the user-provided ZIKOLN bio, ensuring all user-facing text is in English and removing duplicated/awkward phrasing from the provided text.",
+      "featureId": "feature-investigate-and-fix-the-issue-where-the-published-portfolio-site-ui-does-not-respond-to-clicks-buttons-links-portfolio-items-and-form-inputs-identify-any-global-overlay-elements-stacking-context-z-index-issues-or-css-pointer-events-rules-that-are-preventing-pointer-events-from-reaching-interactive-elements",
+      "featureTitle": "Investigate and fix the issue where the published portfolio site UI does not respond to clicks (buttons, links, portfolio items, and form inputs). Identify any global overlay elements, stacking-context/z-index issues, or CSS/pointer-events rules that are preventing pointer events from reaching interactive elements.",
       "files": [
-        "frontend/src/components/sections/AboutSection.tsx",
-        "frontend/src/components/sections/HeroSection.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-replace-placeholder-personal-identity-strings-with-the-zikoln-name-wherever-the-site-currently-displays-a-default-name-e-g-configuration-driven-name-and-footer-copyright-line",
-      "featureTitle": "Replace placeholder personal identity strings with the ZIKOLN name wherever the site currently displays a default name (e.g., configuration-driven name and footer copyright line).",
-      "files": [
-        "frontend/src/components/sections/FooterSection.tsx",
-        "frontend/src/content/siteConfig.ts"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-15"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-adjust-the-global-visual-styling-to-incorporate-more-pink-accents-across-key-ui-highlights-while-keeping-the-existing-futuristic-neon-aesthetic-consistent-site-wide",
-      "featureTitle": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
-      "files": [
-        "frontend/src/components/sections/AboutSection.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/components/sections/ContactSection.tsx",
         "frontend/src/components/sections/HeroSection.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
+        "frontend/src/components/sections/PortfolioSection.tsx",
+        "frontend/src/components/visual/GlobalBackground.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -59,7 +20,47 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-16"
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-all-purely-decorative-full-screen-absolute-fixed-visual-layers-do-not-capture-pointer-events-e-g-background-canvases-fixed-grid-overlays-hero-background-image-layers-while-keeping-interactive-content-layers-clickable-and-visually-unchanged",
+      "featureTitle": "Ensure all purely decorative, full-screen/absolute/fixed visual layers do not capture pointer events (e.g., background canvases, fixed grid overlays, hero background image layers), while keeping interactive content layers clickable and visually unchanged.",
+      "files": [
+        "frontend/src/components/sections/HeroSection.tsx",
+        "frontend/src/components/visual/GlobalBackground.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-minimal-in-app-debug-aid-for-this-specific-issue-when-running-in-development-mode-provide-an-easy-way-to-verify-click-handling-is-working-e-g-a-small-temporary-click-test-element-or-console-logging-gated-to-development-only-and-remove-disable-it-for-production-builds",
+      "featureTitle": "Add a minimal in-app debug aid for this specific issue: when running in development mode, provide an easy way to verify click handling is working (e.g., a small temporary click test element or console logging gated to development only) and remove/disable it for production builds.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
       ],
       "confidence": "high"
     }

@@ -26,7 +26,7 @@ export default function PortfolioSection() {
         });
 
   return (
-    <section id="portfolio" className="py-32 px-4">
+    <section id="portfolio" className="py-32 px-4 relative z-10">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-8 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
           Portfolio
@@ -38,7 +38,7 @@ export default function PortfolioSection() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer ${
                 selectedCategory === category
                   ? 'bg-cyan-500 text-black shadow-[0_0_20px_rgba(0,255,255,0.5)]'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
@@ -59,6 +59,14 @@ export default function PortfolioSection() {
                 key={Number(project.id)}
                 className="group relative cursor-pointer"
                 onClick={() => setSelectedProject(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedProject(project);
+                  }
+                }}
               >
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
                   <img
@@ -67,9 +75,9 @@ export default function PortfolioSection() {
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 border-2 border-cyan-400/0 group-hover:border-cyan-400/100 rounded-2xl transition-all duration-300 shadow-[0_0_0_rgba(0,255,255,0)] group-hover:shadow-[0_0_30px_rgba(0,255,255,0.6)]" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 border-2 border-cyan-400/0 group-hover:border-cyan-400/100 rounded-2xl transition-all duration-300 shadow-[0_0_0_rgba(0,255,255,0)] group-hover:shadow-[0_0_30px_rgba(0,255,255,0.6)] pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 pointer-events-none">
                     <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
                     <p className="text-gray-300 text-sm line-clamp-2">{project.description}</p>
                   </div>

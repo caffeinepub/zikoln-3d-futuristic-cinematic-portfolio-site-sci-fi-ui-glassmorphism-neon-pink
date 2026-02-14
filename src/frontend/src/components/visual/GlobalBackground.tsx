@@ -69,13 +69,13 @@ export default function GlobalBackground() {
 
   return (
     <>
-      <div className="fixed inset-0 bg-gradient-to-b from-[#000000] via-[#0a0a1a] to-[#000814] -z-10" />
+      <div className="fixed inset-0 bg-gradient-to-b from-[#000000] via-[#0a0a1a] to-[#000814] pointer-events-none" style={{ zIndex: -10 }} />
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 -z-10 opacity-60"
-        style={{ pointerEvents: 'none' }}
+        className="fixed inset-0 opacity-60 pointer-events-none"
+        style={{ zIndex: -10, pointerEvents: 'none' }}
       />
-      <div className="fixed inset-0 bg-[url('/assets/generated/bg-starfield-grid.dim_3840x2160.png')] bg-cover bg-center opacity-10 -z-10" />
+      <div className="fixed inset-0 bg-[url('/assets/generated/bg-starfield-grid.dim_3840x2160.png')] bg-cover bg-center opacity-10 pointer-events-none" style={{ zIndex: -10 }} />
     </>
   );
 }

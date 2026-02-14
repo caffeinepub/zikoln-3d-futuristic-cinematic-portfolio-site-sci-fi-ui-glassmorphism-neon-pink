@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the ZIKOLN portfolio’s hero/about copy and identity strings, and increase pink/magenta accents while keeping the existing futuristic neon look.
+**Goal:** Restore site-wide click/tap interactivity on the published portfolio site by removing any global pointer-event blockers and fixing stacking/overlay issues.
 
 **Planned changes:**
-- Update Hero section copy to prominently display “ZIKOLN” and the title “Graphic Designer” in clear English.
-- Rewrite/clean the About bio to include: 1+ years of experience, creativity and attention to detail, specialties (Logos & Branding, Typography, Social Media Design, Motion Graphics), and mastery of Adobe Creative Suite; remove duplicated/awkward phrasing.
-- Replace any placeholder personal name throughout the UI with “ZIKOLN”, including updating `frontend/src/content/siteConfig.ts` and the footer copyright line.
-- Adjust global styling to introduce more visible pink/magenta accents in key highlights (e.g., headline/section gradients and at least one core component accent) without harming readability/contrast and respecting reduced-motion behavior.
+- Investigate and fix global overlays, stacking-context/z-index, and `pointer-events` CSS rules that prevent clicks from reaching buttons, links, cards, and inputs.
+- Ensure all decorative full-screen/absolute/fixed visual layers render normally but do not capture pointer events, while keeping interactive content above them.
+- Add a minimal development-only click/debug aid to quickly verify click handling works, and ensure it is disabled/absent in production builds.
 
-**User-visible outcome:** The site reads as ZIKOLN’s portfolio with polished English hero/about text, correct naming across the UI (including the footer), and a more noticeably pink-accented neon futuristic theme.
+**User-visible outcome:** Users can click HERO CTA buttons, open/close portfolio project modals, focus/type in contact inputs, and use WhatsApp/social links normally, with no decorative layer blocking interactions.

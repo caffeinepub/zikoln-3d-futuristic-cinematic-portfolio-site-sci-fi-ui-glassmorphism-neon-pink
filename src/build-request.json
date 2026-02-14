@@ -1,73 +1,69 @@
 {
   "kind": "build_request",
-  "title": "Update ZIKOLN hero/about copy and increase pink accents",
-  "priority": "normal",
+  "title": "Fix site-wide unclickable UI (clicks not responding)",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-14",
-      "text": "Update the site copy to reflect the user-provided ZIKOLN bio, ensuring all user-facing text is in English and removing duplicated/awkward phrasing from the provided text.",
+      "id": "REQ-17",
+      "text": "Investigate and fix the issue where the published portfolio site UI does not respond to clicks (buttons, links, portfolio items, and form inputs). Identify any global overlay elements, stacking-context/z-index issues, or CSS/pointer-events rules that are preventing pointer events from reaching interactive elements.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-20"
         ],
         "quotes": [
-          "Hello, I’\nm\nZIKOLN \nGRAPHIC DESIGNER\nA graphic and motion designer with over 1 years \nof experience... add these details ass well"
+          "it is not responsing to any click"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section includes ZIKOLN name and “Graphic Designer” title in a prominent, readable way.",
-        "About section bio text includes: (1) 1+ years of experience, (2) emphasis on creativity and attention to detail, (3) specialties: Logos & Branding, Typography, Social Media Design, Motion Graphics, and (4) mastery of Adobe Creative Suite.",
-        "No duplicated sentence remains (e.g., the repeated “I have master Design tool such as Adobe Creative ...”).",
-        "All updated copy is written in clear English."
+        "On the published site, clicking the HERO CTA buttons triggers their intended actions (scroll to #portfolio and scroll to #contact).",
+        "In PORTFOLIO, clicking a project card opens the project modal; clicking the backdrop or the close button closes it.",
+        "In CONTACT, input fields can be focused and typed into; the WhatsApp Direct button and social links are clickable.",
+        "No full-screen decorative layer (background gradients, starfield canvas, hero background images/grids, scanline effects, etc.) blocks pointer events over the main content."
       ]
     },
     {
-      "id": "REQ-15",
-      "text": "Replace placeholder personal identity strings with the ZIKOLN name wherever the site currently displays a default name (e.g., configuration-driven name and footer copyright line).",
+      "id": "REQ-18",
+      "text": "Ensure all purely decorative, full-screen/absolute/fixed visual layers do not capture pointer events (e.g., background canvases, fixed grid overlays, hero background image layers), while keeping interactive content layers clickable and visually unchanged.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-20"
         ],
         "quotes": [
-          "Hello, I’\nm\nZIKOLN"
+          "it is not responsing to any click"
         ]
       },
       "acceptanceCriteria": [
-        "`frontend/src/content/siteConfig.ts` uses the name “ZIKOLN” instead of the current placeholder.",
-        "Footer displays “© [current year] ZIKOLN — Built in the Future” (year remains dynamic).",
-        "No other user-facing sections show the placeholder name (e.g., “Alex Rivera”)."
+        "Decorative layers render normally but have no impact on clicking/scrolling/hovering interactive UI.",
+        "Interactive components remain above decorative layers in stacking order and reliably receive click events across sections."
       ]
     },
     {
-      "id": "REQ-16",
-      "text": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
+      "id": "REQ-19",
+      "text": "Add a minimal in-app debug aid for this specific issue: when running in development mode, provide an easy way to verify click handling is working (e.g., a small temporary click test element or console logging gated to development only) and remove/disable it for production builds.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-20"
         ],
         "quotes": [
-          "use some pink color also."
+          "it is not responsing to any click"
         ]
       },
       "acceptanceCriteria": [
-        "Pink/magenta accents are more noticeable across the UI (e.g., gradients, glow/shadow accents, borders, highlights) without reducing readability/contrast.",
-        "At least one primary gradient treatment (e.g., hero headline gradient and/or major section headings) includes a stronger pink presence.",
-        "At least one core component accent (e.g., GlassPanel neon accents, buttons, or similar highlights) uses the magenta/pink option in a visible way.",
-        "Changes respect reduced-motion behavior (no new mandatory animations that ignore prefers-reduced-motion)."
+        "In development, it is straightforward to verify click handling without inspecting multiple components manually.",
+        "Production build contains no visible debug UI and does not log noisy click-debug output."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files in the immutable frontend paths list (e.g., `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, `frontend/src/components/ui`).",
-    "Keep backend architecture as a single Motoko actor; this request does not require backend changes."
+    "Do not edit files under frontend/src/components/ui or any paths listed in frontend.immutablePaths.",
+    "Keep all user-facing text in English."
   ],
   "nonGoals": [
-    "Do not add new sections, new navigation, or new backend data models for this request.",
-    "Do not change authentication behavior (Internet Identity) or React Query/actor wiring.",
-    "Do not generate new images for this request unless required to support the copy/color updates."
+    "Implementing a CMS/editor for the live site.",
+    "Changing the visual theme or redesigning sections beyond what is required to restore click interactivity."
   ],
   "imageRequirements": {
     "required": [],

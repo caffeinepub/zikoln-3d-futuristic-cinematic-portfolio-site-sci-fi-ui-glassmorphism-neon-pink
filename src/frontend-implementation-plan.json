@@ -1,0 +1,82 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update ZIKOLN copy and enhance pink accents",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Rewrite hero and about copy to the provided ZIKOLN bio in clear English (no duplication/awkward phrasing).",
+      "acceptanceCriteria": [
+        "Hero section includes ZIKOLN name and “Graphic Designer” title in a prominent, readable way.",
+        "About section bio text includes: (1) 1+ years of experience, (2) emphasis on creativity and attention to detail, (3) specialties: Logos & Branding, Typography, Social Media Design, Motion Graphics, and (4) mastery of Adobe Creative Suite.",
+        "No duplicated sentence remains (e.g., the repeated “I have master Design tool such as Adobe Creative ...”).",
+        "All updated copy is written in clear English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Update hero headline/subheadline copy to prominently feature “ZIKOLN” and the “Graphic Designer” title; ensure all hero text reads naturally in English and removes awkward/duplicated phrasing."
+        },
+        {
+          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "operation": "modify",
+          "description": "Rewrite the About bio paragraph(s) to include 1+ years experience, creativity + attention to detail, specialties (Logos & Branding, Typography, Social Media Design, Motion Graphics), and mastery of Adobe Creative Suite; ensure final copy is clear English without repeated sentences."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Replace placeholder identity strings with the name “ZIKOLN” in configuration and footer.",
+      "acceptanceCriteria": [
+        "`frontend/src/content/siteConfig.ts` uses the name “ZIKOLN” instead of the current placeholder.",
+        "Footer displays “© [current year] ZIKOLN — Built in the Future” (year remains dynamic).",
+        "No other user-facing sections show the placeholder name (e.g., “Alex Rivera”)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/siteConfig.ts",
+          "operation": "modify",
+          "description": "Replace the placeholder site name with “ZIKOLN” so any configuration-driven name usage reflects the correct identity."
+        },
+        {
+          "path": "frontend/src/components/sections/FooterSection.tsx",
+          "operation": "modify",
+          "description": "Update the footer copyright line to render “© {currentYear} ZIKOLN — Built in the Future” while keeping the year dynamic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Increase pink/magenta accents across global theme and key UI highlights while preserving the existing neon futuristic aesthetic and reduced-motion behavior.",
+      "acceptanceCriteria": [
+        "Pink/magenta accents are more noticeable across the UI (e.g., gradients, glow/shadow accents, borders, highlights) without reducing readability/contrast.",
+        "At least one primary gradient treatment (e.g., hero headline gradient and/or major section headings) includes a stronger pink presence.",
+        "At least one core component accent (e.g., GlassPanel neon accents, buttons, or similar highlights) uses the magenta/pink option in a visible way.",
+        "Changes respect reduced-motion behavior (no new mandatory animations that ignore prefers-reduced-motion)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust global theme variables and shared styling accents to increase pink/magenta presence (while maintaining contrast), including updating shared accent colors and any global highlight treatments (e.g., scrollbar gradient) without introducing new motion that bypasses prefers-reduced-motion."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Refine/extend Tailwind theme tokens (e.g., neon-pink shadow or related accent utilities) so pink/magenta glow accents are easier to apply consistently across sections while keeping the current neon aesthetic."
+        },
+        {
+          "path": "frontend/src/components/sections/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Strengthen pink/magenta in the hero’s primary gradient treatment and one key UI highlight (e.g., a button gradient/glow or scroll indicator border) while preserving readability and existing reduced-motion handling."
+        },
+        {
+          "path": "frontend/src/components/sections/AboutSection.tsx",
+          "operation": "modify",
+          "description": "Use the GlassPanel component’s magenta/pink neon accent option (neonColor=\"magenta\") in a prominent way and adjust nearby highlights (e.g., heading gradient or avatar glow) to increase visible pink accents while staying consistent with the overall neon theme."
+        }
+      ]
+    }
+  ]
+}

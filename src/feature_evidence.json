@@ -1,0 +1,67 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-site-copy-to-reflect-the-user-provided-zikoln-bio-ensuring-all-user-facing-text-is-in-english-and-removing-duplicated-awkward-phrasing-from-the-provided-text",
+      "featureTitle": "Update the site copy to reflect the user-provided ZIKOLN bio, ensuring all user-facing text is in English and removing duplicated/awkward phrasing from the provided text.",
+      "files": [
+        "frontend/src/components/sections/AboutSection.tsx",
+        "frontend/src/components/sections/HeroSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-placeholder-personal-identity-strings-with-the-zikoln-name-wherever-the-site-currently-displays-a-default-name-e-g-configuration-driven-name-and-footer-copyright-line",
+      "featureTitle": "Replace placeholder personal identity strings with the ZIKOLN name wherever the site currently displays a default name (e.g., configuration-driven name and footer copyright line).",
+      "files": [
+        "frontend/src/components/sections/FooterSection.tsx",
+        "frontend/src/content/siteConfig.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-adjust-the-global-visual-styling-to-incorporate-more-pink-accents-across-key-ui-highlights-while-keeping-the-existing-futuristic-neon-aesthetic-consistent-site-wide",
+      "featureTitle": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
+      "files": [
+        "frontend/src/components/sections/AboutSection.tsx",
+        "frontend/src/components/sections/HeroSection.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

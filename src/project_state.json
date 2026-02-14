@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "3D futuristic high-tech cinematic portfolio website for ZIKOLN (Graphic & Motion Designer) built in Framer or Webflow with sci‑fi UI styling (holograms, neon, glassmorphism), immersive 3D/parallax interactions, CMS-driven portfolio, and performance/mobile optimization; include stronger pink/magenta accents and updated About/Hero copy.",
+  "architectural_notes": [
+    "Use Spline embeds for floating 3D objects and/or WebGL where needed; rely on Framer Motion or Webflow Interactions for parallax, hover depth, and transitions.",
+    "Implement performance-first patterns: lazy loading, optimized media, and mobile-responsive 3D effects (degrade gracefully on low-power devices).",
+    "Use CMS collections (Webflow CMS or Framer CMS) to power portfolio/projects and categories.",
+    "Incorporate stronger pink/magenta accents into the neon palette (buttons, highlights, glows) while maintaining legibility on dark backgrounds."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-the-global-visual-identity-to-match-a-premium-high-tech-cinematic-sci-fi-interface-deep-black-dark-blue-gradient-background-subtle-animated-starfield-or-tech-grid-neon-cyan-electric-purple-soft-magenta-accents-soft-3d-glow-rim-lighting-floating-light-particles-glassmorphism-panels-neon-edge-highlights-and-parallax-depth-layers-enforce-this-consistently-across-all-sections",
+      "title": "Implement the global visual identity to match a premium, high-tech, cinematic sci‑fi interface: deep black + dark blue gradient background, subtle animated starfield or tech grid, neon cyan + electric purple + soft magenta accents, soft 3D glow/rim lighting, floating light particles, glassmorphism panels, neon edge highlights, and parallax depth layers; enforce this consistently across all sections.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-full-screen-hero-section-with-an-immersive-3d-webgl-scene-floating-3d-shapes-spheres-cubes-rings-a-rotating-holographic-grid-camera-parallax-reacting-to-mouse-movement-and-cinematic-lighting-include-the-headline-designing-the-future-in-3d-subtext-graphic-design-motion-visual-storytelling-and-two-glowing-ctas-explore-portfolio-hire-me-with-subtle-floating-animation",
+      "title": "Create a full-screen HERO section with an immersive 3D/WebGL scene: floating 3D shapes (spheres, cubes, rings), a rotating holographic grid, camera parallax reacting to mouse movement, and cinematic lighting; include the headline “Designing the Future in 3D”, subtext “Graphic Design × Motion × Visual Storytelling”, and two glowing CTAs (“Explore Portfolio”, “Hire Me”) with subtle floating animation.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-about-me-section-as-a-floating-hologram-glass-card-with-a-3d-framed-designer-avatar-image-the-intro-text-i-m-a-graphic-motion-designer-with-1-years-of-experience-creating-bold-visuals-for-brands-and-creators-and-skills-displayed-as-floating-chips-orbiting-positioned-around-the-card-with-a-subtle-depth-parallax-effect",
+      "title": "Add an ABOUT ME section as a floating hologram/glass card with a 3D-framed designer avatar image, the intro text “I’m a Graphic & Motion Designer with 1+ years of experience creating bold visuals for brands and creators.”, and skills displayed as floating chips orbiting/positioned around the card (with a subtle depth/parallax effect).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-services-section-with-3d-tilted-cards-for-social-media-design-poster-campaign-logo-branding-typography-motion-graphics-packaging-print-on-hover-each-card-should-rotate-slightly-neon-edges-light-up-and-shadow-depth-increases",
+      "title": "Create a SERVICES section with 3D-tilted cards for: Social Media Design, Poster & Campaign, Logo & Branding, Typography, Motion Graphics, Packaging & Print; on hover each card should rotate slightly, neon edges light up, and shadow/depth increases.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-portfolio-section-as-a-depth-styled-3d-gallery-grid-with-categories-social-media-posters-thumbnails-logos-print-packaging-each-item-should-lift-forward-on-hover-with-a-neon-frame-and-title-fade-in-clicking-an-item-opens-a-cinematic-modal-with-a-dark-backdrop-and-project-details",
+      "title": "Build a PORTFOLIO section as a depth-styled 3D gallery grid with categories: Social Media, Posters, Thumbnails, Logos, Print, Packaging; each item should lift forward on hover with a neon frame and title fade-in; clicking an item opens a cinematic modal with a dark backdrop and project details.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-featured-projects-section-as-a-horizontal-3d-slider-carousel-with-snapping-each-project-shows-a-floating-mockup-image-project-name-and-short-description-the-centered-card-is-larger-than-side-cards-and-has-stronger-emphasis-lighting",
+      "title": "Add a FEATURED PROJECTS section as a horizontal 3D slider/carousel with snapping: each project shows a floating mockup image, project name, and short description; the centered card is larger than side cards and has stronger emphasis lighting.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-skills-section-with-3d-glowing-energy-bar-progress-indicators-for-photoshop-illustrator-after-effects-branding-typography-bars-should-animate-like-charging-energy-when-scrolled-into-view",
+      "title": "Create a SKILLS section with 3D glowing “energy bar” progress indicators for: Photoshop, Illustrator, After Effects, Branding, Typography; bars should animate like charging energy when scrolled into view.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-contact-section-styled-as-a-cyber-terminal-glass-panel-with-fields-name-email-message-a-primary-cta-button-send-signal-a-secondary-whatsapp-direct-action-a-typing-cursor-animation-and-social-icons-that-glow-on-hover-store-submitted-messages-in-the-backend-and-show-a-clear-success-failure-status-in-the-ui",
+      "title": "Implement a CONTACT section styled as a cyber terminal glass panel with fields (Name, Email, Message), a primary CTA button “Send Signal”, a secondary “WhatsApp Direct” action, a typing cursor animation, and social icons that glow on hover; store submitted messages in the backend and show a clear success/failure status in the UI.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-minimal-futuristic-footer-with-the-text-2026-your-name-built-in-the-future-and-an-animated-scan-line-effect",
+      "title": "Add a minimal futuristic FOOTER with the text “© 2026 [Your Name] — Built in the Future” and an animated scan line effect.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-site-wide-motion-and-performance-requirements-smooth-scrolling-page-section-transitions-lazy-loading-for-images-and-heavier-3d-assets-and-mobile-responsive-behavior-include-a-reduced-motion-mode-that-automatically-applies-when-the-user-prefers-reduced-motion",
+      "title": "Implement site-wide motion and performance requirements: smooth scrolling, page/section transitions, lazy loading for images and heavier 3D assets, and mobile-responsive behavior; include a reduced-motion mode that automatically applies when the user prefers reduced motion.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-load-placeholder-content-project-titles-descriptions-tags-and-categories-and-wire-it-into-the-ui-so-the-portfolio-grid-featured-slider-and-modals-display-realistic-sample-data-and-images-by-default",
+      "title": "Generate and load placeholder content (project titles, descriptions, tags, and categories) and wire it into the UI so the portfolio grid, featured slider, and modals display realistic sample data and images by default.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-all-generated-images-as-static-assets-under-frontend-public-assets-generated-and-reference-them-from-the-hero-about-avatar-portfolio-grid-and-featured-project-mockups",
+      "title": "Render all generated images as static assets under frontend/public/assets/generated and reference them from the hero, about avatar, portfolio grid, and featured project mockups.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-copy-to-reflect-the-user-provided-zikoln-bio-ensuring-all-user-facing-text-is-in-english-and-removing-duplicated-awkward-phrasing-from-the-provided-text",
+      "title": "Update the site copy to reflect the user-provided ZIKOLN bio, ensuring all user-facing text is in English and removing duplicated/awkward phrasing from the provided text.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-placeholder-personal-identity-strings-with-the-zikoln-name-wherever-the-site-currently-displays-a-default-name-e-g-configuration-driven-name-and-footer-copyright-line",
+      "title": "Replace placeholder personal identity strings with the ZIKOLN name wherever the site currently displays a default name (e.g., configuration-driven name and footer copyright line).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-global-visual-styling-to-incorporate-more-pink-accents-across-key-ui-highlights-while-keeping-the-existing-futuristic-neon-aesthetic-consistent-site-wide",
+      "title": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build site in Framer or Webflow with premium futuristic creative-studio visual identity (dark gradient, neon accents, glassmorphism, glow/rim lighting, particles)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Hero section: full-screen immersive 3D landing with floating 3D shapes, holographic grid, headline/subtext, glowing CTA buttons, mouse-move camera parallax",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "About section: hologram-style floating glass card with 3D avatar frame and skills as floating chips",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Services section: 3D tilted cards with hover depth (rotate, neon edge highlight, increased shadow)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Portfolio section: 3D depth grid with categories, hover lift + neon frame + title reveal, and cinematic modal on click",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Featured projects: horizontal 3D slider/carousel with snapping and center-focused scaling",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Skills section: 3D glowing animated energy/progress bars for listed tools/skills",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Contact section: cyber terminal glass panel with form, Send Signal + WhatsApp Direct CTAs, typing cursor animation, glowing social icons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Footer: minimal futuristic footer with scan line animation and © 2026 text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Technical requirements: 3D transforms/WebGL/Spline embeds, smooth scroll, page transitions, lazy loading, mobile responsive, optimized performance",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "CMS setup for portfolio content (projects/categories)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Generate placeholder content and placeholder images for the site/portfolio",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Implement a simple CMS-like content model in the Motoko backend to manage portfolio items, categories, and featured projects (CRUD for authorized users), and expose query endpoints for the frontend to list/filter items and fetch item details for modals and sliders.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Update site copy with provided ZIKOLN intro/bio (Graphic Designer; 1+ years experience; specializes in Logos & Branding, Typography, Social Media Design, Motion Graphics; mastery of Adobe Creative Suite) and reflect it in relevant sections (Hero/About).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Adjust global color palette to incorporate more pink (in addition to existing neon palette) across key UI accents and highlights.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "ZIKOLN — 3D futuristic cinematic portfolio site (sci‑fi UI, glassmorphism, neon/pink accents, 3D interactions)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

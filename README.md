@@ -1,2 +1,3 @@
-# zikoln-3d-futuristic-cinematic-portfolio-site-sci-fi-ui-glassmorphism-neon-pink
-Exported from Caffeine project: ZIKOLN — 3D futuristic cinematic portfolio site (sci‑fi UI, glassmorphism, neon/pink accents, 3D interactions)
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

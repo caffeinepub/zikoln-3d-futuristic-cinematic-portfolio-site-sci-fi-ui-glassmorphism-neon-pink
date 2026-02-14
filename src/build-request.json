@@ -1,0 +1,76 @@
+{
+  "kind": "build_request",
+  "title": "Update ZIKOLN hero/about copy and increase pink accents",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "Update the site copy to reflect the user-provided ZIKOLN bio, ensuring all user-facing text is in English and removing duplicated/awkward phrasing from the provided text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Hello, I’\nm\nZIKOLN \nGRAPHIC DESIGNER\nA graphic and motion designer with over 1 years \nof experience... add these details ass well"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section includes ZIKOLN name and “Graphic Designer” title in a prominent, readable way.",
+        "About section bio text includes: (1) 1+ years of experience, (2) emphasis on creativity and attention to detail, (3) specialties: Logos & Branding, Typography, Social Media Design, Motion Graphics, and (4) mastery of Adobe Creative Suite.",
+        "No duplicated sentence remains (e.g., the repeated “I have master Design tool such as Adobe Creative ...”).",
+        "All updated copy is written in clear English."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Replace placeholder personal identity strings with the ZIKOLN name wherever the site currently displays a default name (e.g., configuration-driven name and footer copyright line).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Hello, I’\nm\nZIKOLN"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/src/content/siteConfig.ts` uses the name “ZIKOLN” instead of the current placeholder.",
+        "Footer displays “© [current year] ZIKOLN — Built in the Future” (year remains dynamic).",
+        "No other user-facing sections show the placeholder name (e.g., “Alex Rivera”)."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Adjust the global visual styling to incorporate more pink accents across key UI highlights while keeping the existing futuristic neon aesthetic consistent site-wide.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "use some pink color also."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Pink/magenta accents are more noticeable across the UI (e.g., gradients, glow/shadow accents, borders, highlights) without reducing readability/contrast.",
+        "At least one primary gradient treatment (e.g., hero headline gradient and/or major section headings) includes a stronger pink presence.",
+        "At least one core component accent (e.g., GlassPanel neon accents, buttons, or similar highlights) uses the magenta/pink option in a visible way.",
+        "Changes respect reduced-motion behavior (no new mandatory animations that ignore prefers-reduced-motion)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files in the immutable frontend paths list (e.g., `frontend/src/hooks/useInternetIdentity.ts(x)`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, `frontend/src/components/ui`).",
+    "Keep backend architecture as a single Motoko actor; this request does not require backend changes."
+  ],
+  "nonGoals": [
+    "Do not add new sections, new navigation, or new backend data models for this request.",
+    "Do not change authentication behavior (Internet Identity) or React Query/actor wiring.",
+    "Do not generate new images for this request unless required to support the copy/color updates."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
